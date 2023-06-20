@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>browser-camera</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <style>
+    html *
+    {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    header {
+      transition: background-color 2s ease;
+
+      display: flex;
+      align-items: center;
+    }
+    .connection-status {
+      margin-right: 20px;
+    }
+    .snapshot-time {
+      margin-right: 20px;
+    }
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .wrapper-item {
+      width: 320px;
+      margin-right: 10px;
+    }
+    .camera-video {
+      border: 1px solid black;
+      width: 320px;
+      height: 240px;
+    }
+    .canvas-preview {
+      max-width: 320px;
+      max-height: 240px;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+<header id="header">
+  <span id="connection-status" class="connection-status">Not connected</span>
+  <span class="snapshot-time">Last snapshot time: <span id="snapshot-time">--:--:--</span></span>
+  Device codename: <button id="device-codename" class="device-codename">--</button>
+</header>
+<div class="wrapper">
+  <div class="wrapper-item">
+    <label for="camera-resolution">Max camera resolution:</label>
+    <select id="camera-resolution" name="camera-resolution">
+      <option value="1280,720">1280x720</option>
+      <option value="320,240">320x240</option>
+      <option value="640,480">640x480</option>
+      <option value="1920,1080">1920x1080</option>
+      <option value="2560,1440">2560x1440</option>
+      <option value="3840,2160">3840x2160</option>
+    </select>
+    <video id="player" controls autoplay muted playsinline class="camera-video"></video>
+  </div>
+  <div class="wrapper-item">
+    <p>Photo preview  <button id="toggle-photo-orientation">🔄 Toggle photo orientation</button></p>
+    <canvas id="canvas" class="canvas-preview"></canvas>
+
+  </div>
+</div>
+<script src="scripts/lib/take-photo.js"></script>
+<script src="scripts/lib/send-photo.js"></script>
+<script src="scripts/state.js"></script>
+<script src="scripts/device-codename.js"></script>
+<script src="scripts/photo.js"></script>
+<script src="scripts/ws-connection.js"></script>
+<script>
+  const state = initState()
+  initDeviceCodename(state)
+  initPhotoShootingSystem(state).then(() => {
+    initTogglePhotoOrientation(state)
+    initResolutionSelector(state)
+    initWsConnection(state)
+  })
+</script>
+</body>
+</html>

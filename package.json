@@ -1,0 +1,23 @@
+{
+  "name": "easy-timelapse",
+  "version": "1.0.0",
+  "description": "utility that helps to make 3D print timelapse videos using device with browser and camera, and computer connected to 3D printer USB port",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node -r dotenv/config server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mercuso",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/multipart": "^7.6.0",
+    "@fastify/one-line-logger": "^1.2.0",
+    "@fastify/static": "^6.10.2",
+    "@fastify/websocket": "5.0.1",
+    "dotenv": "^16.1.4",
+    "fastify": "^4.17.0",
+    "pino": "^8.14.1",
+    "pino-pretty": "^10.0.0",
+    "serialport": "^11.0.0"
+  }
+}
