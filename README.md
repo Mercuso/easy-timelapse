@@ -42,7 +42,7 @@ Install [docker](https://docs.docker.com/engine/install/)
 
 Build docker image
 ```bash
-docker build --tag browser-camera .
+docker build --tag easy-timelapse .
 ```
 
 Run docker container (replace <device name> with your printer USB port device name that was found in previous step)
@@ -52,19 +52,19 @@ docker run \
     --volume $(pwd)/tmp:/app/tmp \
     --publish 8080:8080 \
     --env-file .env \
-    --name browser-camera-local \
+    --name easy-timelapse-local \
     --interactive \
-    browser-camera
+    easy-timelapse
 ```
 
 Command to stop server
 ```bash
-docker stop browser-camera-local
+docker stop easy-timelapse-local
 ```
 
 Command to start server
 ```bash
-docker start browser-camera-local
+docker start easy-timelapse-local
 ```
 
 ### Run server directly
