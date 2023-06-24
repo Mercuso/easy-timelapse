@@ -28,6 +28,7 @@ example device path: `/dev/ttyACM0`
 in this case, `ttyACM0` is the **DEVICE_NAME** value  
 
 Optional variables:  
+**IMAGE_SIZE_LIMIT** - maximum size of the image (in bytes) that can be uploaded to the server. Default: `10485760` (10MB)  
 **HTTP_SERVER_PORT** - port on which http server will be listening for incoming connections. Default: `8080`  
 **HTTP_SERVER_HOST** - host on which http server will be listening for incoming connections. Default: `0.0.0.0`  
 **SIGNAL_SOURCE** - source of the signal that will be used to trigger camera.  
@@ -90,6 +91,14 @@ It can be achieved by adding a piece of custom code to every layer change
 In PrusaSlicer, go to Printer Settings -> Custom G-code -> After layer change G-code  
 Example code can be found in examples project directory  
 For Prusa printers, it's impossible to use [M118](https://marlinfw.org/docs/gcode/M118.html) command for printing into serial port is not supported. Workaround - put the non-existent command and use the error message as a signal that indicates layer change
+
+### Connect printer to computer
+Connect printer with computer where you're planning to run server with USB cable  
+For Prusa MINI+ printer, use micro USB port on the right side  
+Printer should be turned on and connected to the same computer where server is running  
+
+### Start server
+Commands for starting server are described in "Installation" section
 
 ### Connect camera
 After starting server, check logs, it should print something like this:
