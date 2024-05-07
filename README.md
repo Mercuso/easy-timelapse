@@ -1,6 +1,6 @@
 # easy-timelapse
-Make beautiful 3D print timelapse videos using your phone camera or web camera and computer connected to 3D printer USB port. No any extra hardware required
-
+Make beautiful 3D print timelapse videos using your phone camera or web camera and computer connected to 3D printer USB port. No any extra hardware required  
+Usage example: https://youtu.be/Ea2dWP-aFYE  
 Tested with Prusa MINI+ printer, phone camera and server with macOS and Linux operating systems
 
 ## Installation
